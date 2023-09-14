@@ -1,0 +1,153 @@
+html {
+  font-family: sans-serif;
+}
+
+header {
+  width: 100%;
+}
+
+header > h1 {
+  font-size: 1.6rem; /* made a bit smaller so fits on one line for mobile */
+  font-weight: 800;
+  padding: .5em 1.6em;
+  background-image: linear-gradient(to right, rgb(26, 136, 1), black);
+  color: white;
+  width: 100%;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#inputs {
+  flex: 2 0 600px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 0 10px;
+  margin-bottom: 40px;
+}
+
+#predictions {
+  flex: 1 0 450px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#drawn-mol-ignored-msg {
+  color: #999;
+  font-weight: 600;
+}
+
+#error {
+  padding: 1.5em 2em;
+  border: 5px solid red;
+  font-weight: 300;
+  font-size: 1.2 rem;
+}
+
+#sdf-input-row {
+  display: flex;
+  justify-content: center;
+}
+
+#jsdraw {
+  width: 100%;
+  height: min(50vh, 500px);
+}
+
+ul.notes {
+  margin: 15px auto;
+  max-width: 35em;
+}
+
+#sdf-reference {
+  margin-left: 2em;
+}
+
+button#submit {
+  font-size: 2rem;
+  padding: .5em 1em;
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: .5em;
+  margin-bottom: 20px;
+}
+
+button#submit:disabled {
+  background-color: lightgray;
+}
+
+#method-select {
+  margin-bottom: 10px;
+}
+
+#spinner {
+  margin-top: 30px;
+}
+
+#output-table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 2px solid rgb(200,200,200);
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+#molid-col {
+  width: fit-content;
+}
+
+#tox-score-col {
+  width: 12em;
+}
+
+#tox-class-col {
+  width: 4em;
+}
+
+#output-table td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+}
+
+#output-table th {
+  background-color: rgb(220,220,220);
+}
+
+#output-table td {
+  text-align: center;
+}
+
+#output-table tr:nth-child(even) {
+  background-color: rgb(250,250,250);
+}
+
+#output-table tr:nth-child(odd) {
+  background-color: rgb(240,240,240);
+}
+
+#output-table caption {
+  padding: 10px;
+  caption-side: bottom;
+}
+
+#output-table td.toxic {
+  background-color: #a22;
+  color: white;
+}
+
+#output-table td.non-toxic {
+  background-color: darkgreen;
+  color: white;
+}

@@ -1,0 +1,15 @@
+[Unit]
+Description=Deep DILI
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/bin/docker stop deep-dili
+ExecStartPre=-/bin/docker rm deep-dili
+ExecStartPre=/bin/docker pull scharris/deep-dili:0.9
+ExecStart=/bin/docker run --name deep-dili -v /opt/deep-dili/data:/data --network=host scharris/deep-dili:0.9
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "deep-dili"
+version = "0.1.0"
+description = ""
+authors = ["Steve Harris <steveofar@hotmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+tensorflow = "^2.11.0"
+xgboost = "^1.7.4"
+rdkit = "^2022.9.5"
+numpy = "^1.24.2"
+pandas = "^1.5.3"
+Flask = "^2.2.3"
+scikit-learn = "^1.2.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

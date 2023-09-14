@@ -1,0 +1,7 @@
+*
+!data.tgz
+!*.py
+!pyproject.toml
+!poetry.lock
+!mold2-src/*
+!webapp/*

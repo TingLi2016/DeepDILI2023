@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+  <title>SafetAI</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="spinner.css" />
+  <script src="deep-dili.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>SafetAI <em>Drug Safety Assessment Tools</em></h1>
+  </header>
+  <main>
+    <section id="inputs">
+      <!-- JSDraw chemical structure editor -->
+      <h2>Draw a molecule
+        <span id="drawn-mol-ignored-msg" style="display: none;">(Ignored because a file is selected)</span>
+      </h2>
+      <div class="JSDraw" id="jsdraw" skin="w8" ondatachange="drawnMoleculeChanged"></div>
+      <!-- SD file form -->
+      <h2>Or choose a Mol or SD file</h2>
+      <form id="form" method="post" enctype="multipart/form-data">
+        <div id="sdf-input-row">
+          <input name="sdf" type="file" required />
+          <span id="sdf-reference">
+            (For an SD File reference see this
+            <a href="https://www.fda.gov/media/151718/download"
+               alt="quick guide to SD file format"
+               target="_blank">
+               FDA quick guide
+            </a>)
+          </span>
+        </div>
+        <ul class="notes">
+          <li>SD files may contain any number of molecules to be predicted.</li>
+          <li>Only V2000 molecule-block format is supported in both Mol and SD files.</li>
+        </ul>
+      </form>
+    </section>
+    <section id="predictions">
+      <select id="method-select">
+        <option value="deep-dili">DeepDILI</option>
+        <option value="deep-carc" disabled>DeepCarc</option>
+        <option value="deep-carc" disabled>DeepAmes</option>
+      </select>
+      <button id="submit" type="button">Predict <em>!</em></button>
+      <div id="spinner" class="spinner" style="display: none;">CALCULATING<span></span></div>
+      <p id="error" style="display: none;"></p>
+      <output style="display: none;">
+        <h2>Prediction Results</h2>
+        <table id="output-table">
+          <caption>Deep-DILI toxicity predictions for input molecules</caption>
+          <thead>
+            <tr>
+              <th id="molid-col">Molecule</th>
+              <th id="tox-score-col">Confidence</th>
+              <th id="tox-class-col">Classification</th>
+            </tr>
+          </thead>
+          <tbody id="output-table-body"></tbody>
+        </table>
+      </output>
+    </section>
+  </main>
+  <script src="Scilligence.JSDraw2.UI.js"></script>
+  <script src="Scilligence.JSDraw2.Pro.js"></script>
+  <script src="Scilligence.Icons.js"></script>
+  <script>JSDraw.init();</script>
+</body>

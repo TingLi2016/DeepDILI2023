@@ -1,0 +1,77 @@
+.spinner
+{
+  position: relative;
+  width:200px;
+  height:200px;
+  background:transparent;
+  border:3px solid orange;
+  border-radius:50%;
+  text-align: center;
+  line-height:200px;
+  font-family:sans-serif;
+  font-size:20px;
+  color: green;
+  letter-spacing:4px;
+  text-shadow:0 0 10px green;
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+.spinner:before
+{
+  content:'';
+  position:absolute;
+  top:-3px;
+  left:-3px;
+  width:100%;
+  height:100%;
+  border:3px solid transparent;
+  border-top:3px solid green;
+  border-right:3px solid green;
+  border-radius:50%;
+  animation:animateC 2s linear infinite;
+}
+.spinner > span
+{
+  display:block;
+  position:absolute;
+  top:calc(50% - 2px);
+  left:50%;
+  width:50%;
+  height:4px;
+  background:transparent;
+  transform-origin:left;
+  animation:animate 2s linear infinite;
+}
+.spinner > span:before
+{
+  content:'';
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background: green;
+  top:-6px;
+  right:-8px;
+  box-shadow:0 0 20px green;
+}
+@keyframes animateC
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform:rotate(360deg);
+  }
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(45deg);
+  }
+  100%
+  {
+    transform:rotate(405deg);
+  }
+}
