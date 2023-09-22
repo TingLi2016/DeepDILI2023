@@ -2,6 +2,7 @@
 
 ## Prerequisites
 
+- Due to the limitation of file size, data.tgz file is provided by request.
 - Some variant of Docker or Moby should be installed. For Windows and MacOS,
   [Docker Desktop](https://www.docker.com/products/docker-desktop/) is
   recommended. For Linux, you should probably install via your package manager.
